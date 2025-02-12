@@ -1,4 +1,4 @@
-# Use official Python image
+# Use an official Python image
 FROM python:3.9
 
 # Set the working directory
@@ -10,8 +10,8 @@ COPY . /app
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port Streamlit runs on
-EXPOSE 8501
+# Expose port 8080 (Cloud Run default)
+EXPOSE 8080
 
-# Run the Streamlit app
-CMD ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Run the Streamlit app on port 8080
+CMD ["streamlit", "run", "streamlit_app.py", "--server.port=8080", "--server.address=0.0.0.0"]
